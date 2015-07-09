@@ -7,7 +7,7 @@
     "url": "https://github.com/callemall/material-ui.git"
   },
   "scripts": {
-    "start": "server.js"
+    "start": "src/server/server.js"
   },
   "devDependencies": {
     "babelify": "^6.1.2",
