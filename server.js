@@ -7,7 +7,7 @@ var configureServer = function() {
     server.configure(
         function() {
             //any static file from the static directory, just return it to user if requested
-            server.use(express.static(__dirname + '/public/'));
+            server.use(express.static(__dirname + '/build/'));
         }
     );
     return server;
