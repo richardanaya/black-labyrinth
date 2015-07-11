@@ -2,6 +2,7 @@ let React = require('react');
 let mui = require('material-ui');
 let TextField = mui.TextField;
 let FlatButton = mui.FlatButton;
+let Snackbar = mui.Snackbar;
 
 class ChatComponent extends React.Component {
     constructor(props) {
@@ -30,7 +31,7 @@ class ChatComponent extends React.Component {
     }
 
     onCreatedPeer(peer){
-        this.addText('createdPeer');
+        this.refs.joinedMessage.show();
     }
 
     onChannelMessage(peer, channel, data) {
@@ -56,9 +57,9 @@ class ChatComponent extends React.Component {
             }
         );
 
-        this.webrtc.on('createdPeer', ::this.onCreatedPeer);
+        this.webrtc.on('createdPeer', this.onCreatedPeer.bind(this));
 
-        this.webrtc.on("channelMessage", ::this.onChannelMessage);
+        this.webrtc.on("channelMessage", this.onChannelMessage.bind(this));
     }
 
     render() {
@@ -71,13 +72,14 @@ class ChatComponent extends React.Component {
         });
 
         return <div>
+            <Snackbar ref="joinedMessage" message="A peer has joined the chat" action="okay"/>
             <TextField ref="roomName" hintText="Room" value="default"/>
-            <FlatButton onClick={::this.joinRoom}>Join</FlatButton>
+            <FlatButton onClick={this.joinRoom.bind(this)}>Join</FlatButton>
             <div ref="chatArea">
                 {messages}
             </div>
             <TextField ref="message" hintText="Message"/>
-            <FlatButton onClick={::this.sendMessage}>Send</FlatButton>
+            <FlatButton onClick={this.sendMessage.bind(this)}>Send</FlatButton>
         </div>
     }
 }
