@@ -6,6 +6,7 @@ let RaisedButton = mui.RaisedButton;
 let Dialog = mui.Dialog
 let ThemeManager = new mui.Styles.ThemeManager();
 let Colors = mui.Styles.Colors;
+let Chat = require('./chat.jsx'); // Our custom react component
 
 
 let Main = React.createClass({
@@ -39,25 +40,7 @@ let Main = React.createClass({
 
     return (
       <div style={containerStyle}>
-        <Dialog
-          title="Super Secret Password"
-          actions={standardActions}
-          ref="superSecretPasswordDialog">
-          1-2-3-4-5
-        </Dialog>
-
-        
-        <h1>material-ui</h1>
-        <h2>example project</h2>
-
-        <RaisedButton label="Super Secret Password" primary={true} onTouchTap={this._handleTouchTap} />
-        <br/>
-        <input id="room" value="default"></input>
-        <button id="joinButton">Join</button>
-        <div id="chatArea">
-        </div>
-        <input id="textInput"></input>
-        <button id="sendButton">Send</button>
+        <Chat/>
       </div>
     );
   },
