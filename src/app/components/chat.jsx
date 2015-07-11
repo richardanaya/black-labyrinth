@@ -1,5 +1,8 @@
 let React = require('react');
 let mui = require('material-ui');
+let Immutable = require('immutable');
+let ChatActions = require('../actions/chatactions');
+let MessageStore = require('../stores/messagestore');
 let TextField = mui.TextField;
 let FlatButton = mui.FlatButton;
 let Snackbar = mui.Snackbar;
@@ -7,7 +10,16 @@ let Snackbar = mui.Snackbar;
 class ChatComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {messages: []};
+        this.state = {
+            messages: Immutable.List()
+        };
+        MessageStore.instance.subscribe(this.onMessageStoreUpdate.bind(this))
+    }
+
+    onMessageStoreUpdate(value){
+        this.setState(({messages}) => (
+            {messages: value}
+        ));
     }
 
     joinRoom(){
@@ -20,8 +32,7 @@ class ChatComponent extends React.Component {
     }
 
     addText(t){
-        this.state.messages.push(t);
-        this.setState(this.state);
+        ChatActions.sendMessage(t);
     }
 
     sendMessage(){
@@ -72,7 +83,7 @@ class ChatComponent extends React.Component {
         });
 
         return <div>
-            <Snackbar ref="joinedMessage" message="A peer has joined the chat" action="okay"/>
+            <Snackbar ref="joinedMessage" message="A peer has joined the chat" action="okay" onActionTouchTap={()=>this.refs.joinedMessage.dismiss()}/>
             <TextField ref="roomName" hintText="Room" value="default"/>
             <FlatButton onClick={this.joinRoom.bind(this)}>Join</FlatButton>
             <div ref="chatArea">
