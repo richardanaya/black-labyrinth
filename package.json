@@ -15,6 +15,7 @@
     "browserify": "^7.0.3",
     "gulp": "^3.8.10",
     "gulp-notify": "^2.1.0",
+    "gulp-nodemon": "^1.0.4",
     "gulp-util": "^3.0.1",
     "pretty-hrtime": "^0.2.2",
     "require-dir": "^0.1.0",

@@ -14,9 +14,13 @@ var configureServer = function() {
     return server;
 };
 
-var port = process.env.PORT || 9999;
+var port = process.env.PORT || 5000;
 var server = configureServer();
 
+
+server.get('/hey', function (req, res) {
+    res.send("hello")
+});
 
 server.get('/token', function (req, res) {
   request({
