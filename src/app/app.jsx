@@ -5,7 +5,6 @@
   var Router = require('react-router');
   var Root = Router.Root;
   var Route = Router.Route;
-
   let Chat = require('./components/chat.jsx');
   let BlackLabyrinth = require('./components/blacklabyrinth.jsx');
 
