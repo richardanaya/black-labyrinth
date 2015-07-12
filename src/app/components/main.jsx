@@ -6,8 +6,7 @@ let RaisedButton = mui.RaisedButton;
 let Dialog = mui.Dialog
 let ThemeManager = new mui.Styles.ThemeManager();
 let Colors = mui.Styles.Colors;
-let Chat = require('./chat.jsx'); // Our custom react component
-
+var {RouteHandler} = require('react-router');
 
 let Main = React.createClass({
 
@@ -30,8 +29,6 @@ let Main = React.createClass({
   render() {
 
     let containerStyle = {
-      textAlign: 'center',
-      paddingTop: '200px'
     };
 
     let standardActions = [
@@ -40,7 +37,7 @@ let Main = React.createClass({
 
     return (
       <div style={containerStyle}>
-        <Chat/>
+        <RouteHandler/>
       </div>
     );
   },

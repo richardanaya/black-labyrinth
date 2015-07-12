@@ -6,6 +6,7 @@ let MessageStore = require('../stores/messagestore');
 let TextField = mui.TextField;
 let FlatButton = mui.FlatButton;
 let Snackbar = mui.Snackbar;
+let Link = require('react-router').Link;
 
 class ChatComponent extends React.Component {
     constructor(props) {
@@ -13,7 +14,6 @@ class ChatComponent extends React.Component {
         this.state = {
             messages: Immutable.List()
         };
-        MessageStore.instance.subscribe(this.onMessageStoreUpdate.bind(this))
     }
 
     onMessageStoreUpdate(value){
@@ -71,6 +71,8 @@ class ChatComponent extends React.Component {
         this.webrtc.on('createdPeer', this.onCreatedPeer.bind(this));
 
         this.webrtc.on("channelMessage", this.onChannelMessage.bind(this));
+
+        MessageStore.instance.subscribe(this.onMessageStoreUpdate.bind(this))
     }
 
     render() {
@@ -91,6 +93,7 @@ class ChatComponent extends React.Component {
             </div>
             <TextField ref="message" hintText="Message"/>
             <FlatButton onClick={this.sendMessage.bind(this)}>Send</FlatButton>
+            <Link to="/lab">Hey</Link>
         </div>
     }
 }

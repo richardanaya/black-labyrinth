@@ -6,7 +6,7 @@ let {Action,Store,Singleton} = require("staticflux");
 @Singleton
 class MessageStore extends Store {
     constructor() {
-        super(Immutable.List());
+        super(Immutable.List.of("hey","wassup"));
         ChatActions.sendMessage.subscribe(this.handleMessage.bind(this))
     }
 
