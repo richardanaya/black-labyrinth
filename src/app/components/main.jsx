@@ -3,17 +3,19 @@
 let React = require('react');
 let mui = require('material-ui');
 let RaisedButton = mui.RaisedButton;
-let Dialog = mui.Dialog
 let AppBar = mui.AppBar;
 let LeftNav = mui.LeftNav;
+let FlatButton = mui.FlatButton;
 let ThemeManager = new mui.Styles.ThemeManager();
 let Colors = mui.Styles.Colors;
-var {RouteHandler} = require('react-router');
+let {RouteHandler} = require('react-router');
+let DiceDialog = require("./dicedialog.jsx");
 
 let menuItems = [
-  { route: '/', text: 'Home' },
-  { route: '/lab', text: 'Lab' },
+  { route: '/', text: 'Map' },
+  { route: '/dice', text: 'Dice' },
 ]
+
 
 let Main = React.createClass({
 
@@ -52,14 +54,20 @@ let Main = React.createClass({
     return (
 
       <div style={containerStyle}>
-        <AppBar title="Title" iconClassNameRight="muidocs-icon-navigation-expand-more"
-                onLeftIconButtonTouchTap={()=>this.refs.leftNav.toggle()}/>
+        <AppBar title="Black Labyrinth" iconClassNameRight="muidocs-icon-navigation-expand-more"
+                onLeftIconButtonTouchTap={()=>this.refs.leftNav.toggle()}
+                iconElementRight={<FlatButton onClick={this.onRoll} label="Roll"/>}
+                />
         <LeftNav ref="leftNav" docked={false} menuItems={menuItems}
                  selectedIndex={this.getSelectedIndex()}
                  onChange={this.onLeftNavChange} />
+        <DiceDialog ref="diceDialog" />
         <RouteHandler/>
       </div>
     );
+  },
+  onRoll(){
+      this.refs.diceDialog.show();
   },
   getSelectedIndex() {
     let currentItem;

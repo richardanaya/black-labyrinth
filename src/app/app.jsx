@@ -5,8 +5,8 @@
   var Router = require('react-router');
   var Root = Router.Root;
   var Route = Router.Route;
-  let Chat = require('./components/chat.jsx');
-  let BlackLabyrinth = require('./components/blacklabyrinth.jsx');
+  let Map = require('./components/map.jsx');
+  let Dice = require('./components/dice.jsx');
 
   //Needed for React Developer Tools
   window.React = React;
@@ -21,8 +21,8 @@
   // For more details see: https://facebook.github.io/react/docs/top-level-api.html#react.render
   var routes = (
     <Route handler={Main}>
-      <Route path="/" handler={Chat}/>
-      <Route path="/lab" handler={BlackLabyrinth}/>
+      <Route path="/" handler={Map}/>
+      <Route path="/dice" handler={Dice}/>
     </Route>
   );
 
