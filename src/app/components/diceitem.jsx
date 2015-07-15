@@ -24,7 +24,7 @@ class DiceItem extends React.Component {
         var allRolls = rollJs.roll.map(function(r){
             var allDice = r.dice.map(function(d){
                 var dRet = (d.numRolls!=1?d.numRolls+" x ":"")+"d"+d.numSides +(d.modifier!=0?" + "+d.modifier:"");
-                if(r.dice.length == 0){
+                if(r.dice.length == 1){
                     return dRet;
                 }
                 if(!(d.numRolls == 1 && d.modifier == 0)){
@@ -41,7 +41,7 @@ class DiceItem extends React.Component {
         var finalString = allRolls.join(" + ");
         var diceString = rollJs.totalDice.join(" + ")+" = "+rollJs.total;
         return <Paper zDepth={1} style={diceRollStyle}>
-            {allRolls}<br/><br/> 
+            {allRolls}<br/><br/>
             {diceString}
         </Paper>
     }
