@@ -17,7 +17,6 @@ class DiceStore extends Store {
                     totalDice: [3,20],
                     roll: [
                         {
-                            modifier: 2,
                             dice: [
                                 {
                                     numRolls: 1,
@@ -42,7 +41,6 @@ class DiceStore extends Store {
                     totalDice: [4,5,6],
                     roll: [
                         {
-                            modifier: 0,
                             dice: [
                                 {
                                     numRolls: 3,
