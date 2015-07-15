@@ -19,6 +19,11 @@ class DiceItem extends React.Component {
             fontSize: 24
         }
 
+        let nameStyle = {
+            position:"absolute",
+            fontSize: 16
+        }
+
         var rollJs = this.state.roll.toJS();
 
         var allRolls = rollJs.roll.map(function(r){
@@ -41,6 +46,7 @@ class DiceItem extends React.Component {
         var finalString = allRolls.join(" + ");
         var diceString = rollJs.totalDice.join(" + ")+" = "+rollJs.total;
         return <Paper zDepth={1} style={diceRollStyle}>
+            <div style={nameStyle}>{rollJs.name}</div>
             {allRolls}<br/><br/>
             {diceString}
         </Paper>
