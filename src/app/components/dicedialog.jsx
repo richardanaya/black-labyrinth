@@ -44,7 +44,25 @@ class DiceDialogComponent extends React.Component {
 
     onRoll(){
         this.context.router.transitionTo("/dice");
-        DiceActions.rollDice("hey");
+        DiceActions.rollDice(Immutable.fromJS({
+            name: "Attack",
+            rollType: {
+                type: "sum"
+            },
+            total: 20,
+            roll: [
+                {
+                    modifier: 2,
+                    dice: [
+                        {
+                            numRolls: 3,
+                            modifier: 0,
+                            numSides: 6
+                        }
+                    ]
+                }
+            ]
+        }));
         this.refs.dialog.dismiss();
     }
 }

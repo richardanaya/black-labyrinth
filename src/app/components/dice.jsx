@@ -2,6 +2,8 @@ let React = require('react');
 let {Paper,TextField} = require('material-ui');
 let Immutable = require('immutable');
 let DiceStore = require("../stores/dicestore")
+let DiceItem = require("./diceitem.jsx")
+let newid = require('../newid');
 
 class DiceComponent extends React.Component {
     constructor(props) {
@@ -26,15 +28,9 @@ class DiceComponent extends React.Component {
             textAlign: "center"
         };
 
-        let diceRollStyle = {
-            width: 600
-        }
-
-        var rolls = this.state.data.get("rolls").map((m) => {
+        var rolls = this.state.data.map((m) => {
             return (
-                <Paper zDepth={1} style={diceRollStyle}>
-                    <p>{m}</p>
-                </Paper>
+                <DiceItem key={newid()} roll={m}/>
             );
         });
         return <div style={containerStyle}>

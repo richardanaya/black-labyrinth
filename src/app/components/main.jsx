@@ -54,7 +54,7 @@ let Main = React.createClass({
     return (
 
       <div style={containerStyle}>
-        <AppBar title="Black Labyrinth" iconClassNameRight="muidocs-icon-navigation-expand-more"
+        <AppBar title="Black Labyrinth"
                 onLeftIconButtonTouchTap={()=>this.refs.leftNav.toggle()}
                 iconElementRight={<FlatButton onClick={this.onRoll} label="Roll"/>}
                 />
