@@ -25,7 +25,12 @@ class DiceComponent extends React.Component {
 
         let containerStyle = {
             padding: 15,
-            textAlign: "center"
+            textAlign: "center",
+            display: "flex",
+            flexDirection: "column",
+            flexWrap: "nowrap",
+            alignItems: "center"
+
         };
 
         var rolls = this.state.data.map((m) => {

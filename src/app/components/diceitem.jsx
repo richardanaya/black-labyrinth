@@ -13,11 +13,36 @@ class DiceItem extends React.Component {
 
     render() {
         let diceRollStyle = {
-            width: 600
+            width: 600,
+            margin: 7,
+            padding: 10,
+            fontSize: 24
         }
 
+        var rollJs = this.state.roll.toJS();
+
+        var allRolls = rollJs.roll.map(function(r){
+            var allDice = r.dice.map(function(d){
+                var dRet = (d.numRolls!=1?d.numRolls+" x ":"")+"d"+d.numSides +(d.modifier!=0?" + "+d.modifier:"");
+                if(r.dice.length == 0){
+                    return dRet;
+                }
+                if(!(d.numRolls == 1 && d.modifier == 0)){
+                    dRet = "( "+dRet+" )";
+                }
+                return dRet;
+            });
+            allDice = allDice.join(" + ");
+            if(r.modifier != 0){
+                allDice = "[ "+allDice+" ] + "+r.modifier
+            }
+            return allDice;
+        })
+        var finalString = allRolls.join(" + ");
+        var diceString = rollJs.totalDice.join(" + ")+" = "+rollJs.total;
         return <Paper zDepth={1} style={diceRollStyle}>
-            Roll: <p>{this.state.roll.get("name")}</p>
+            {allRolls}<br/><br/> 
+            {diceString}
         </Paper>
     }
 }

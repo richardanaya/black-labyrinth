@@ -1,8 +1,7 @@
 let React = require('react');
 let mui = require('material-ui');
 let Immutable = require('immutable');
-let TextField = mui.TextField;
-let Dialog = mui.Dialog
+let {Paper,TextField,Dialog} = require('material-ui');
 
 class MapComponent extends React.Component {
     constructor(props) {
@@ -63,8 +62,15 @@ class MapComponent extends React.Component {
             display: "inline-block"
         }
 
+        var holderStyle = {
+            width: this.state.width-40,
+            height: this.state.height-64-40
+        };
+
         return <div style={containerStyle}>
-            <canvas ref="mapCanvas" style={canvasStyle} width={this.state.width-40} height={this.state.height-64-40}></canvas>
+            <Paper zDepth={3} style={holderStyle}>
+                <canvas ref="mapCanvas" style={canvasStyle} width={this.state.width-40} height={this.state.height-64-40}></canvas>
+            </Paper>
         </div>
     }
 }

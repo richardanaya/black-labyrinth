@@ -7,4 +7,9 @@ body {
   line-height: 20px;
   margin: 0px;
   padding: 0px;
+  background-color: #616161;
+}
+
+div {
+  color: #EEEEEE;
 }

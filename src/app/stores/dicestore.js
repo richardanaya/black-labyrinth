@@ -13,7 +13,8 @@ class DiceStore extends Store {
                     rollType: {
                         type: "sum"
                     },
-                    total: 120,
+                    total: 23,
+                    totalDice: [3,20],
                     roll: [
                         {
                             modifier: 2,
@@ -37,10 +38,11 @@ class DiceStore extends Store {
                     rollType: {
                         type: "sum"
                     },
-                    total: 20,
+                    total: 15,
+                    totalDice: [4,5,6],
                     roll: [
                         {
-                            modifier: 2,
+                            modifier: 0,
                             dice: [
                                 {
                                     numRolls: 3,
