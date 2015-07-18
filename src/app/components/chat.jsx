@@ -1,6 +1,5 @@
 let React = require('react');
 let mui = require('material-ui');
-let Immutable = require('immutable');
 let ChatActions = require('../actions/chatactions');
 let MessageStore = require('../stores/messagestore');
 let TextField = mui.TextField;

@@ -1,7 +1,4 @@
 let DiceActions = require('../actions/diceactions');
-let Immutable = require('immutable');
-var Rx = require('rx');
-let {Action,Store,Singleton} = require("staticflux");
 
 @Singleton
 class DiceStore extends Store {

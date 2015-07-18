@@ -4,12 +4,16 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Black Labyrinth</title>
-  <meta name="description" content="Google's material design UI components built with React.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/3.7.4/immutable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/2.5.3/rx.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react-with-addons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/0.13.3/ReactRouter.min.js"></script>
+  <script src="lib/staticflux.js"></script>
   <script src="lib/xirsys.core.js"></script>
   <script src="lib/xirsys.api.js"></script>
   <script src="lib/xirsys.simplewebrtc.js"></script>
@@ -17,21 +21,6 @@
 </head>
 
 <body>
-  <!-- This script adds the Roboto font to our project. For more detail go to this site:  http://www.google.com/fonts#UsePlace:use/Collection:Roboto:400,300,500 -->
-  <script>
-    var WebFontConfig = {
-      google: { families: [ 'Roboto:400,300,500:latin' ] }
-    };
-    (function() {
-      var wf = document.createElement('script');
-      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-      wf.type = 'text/javascript';
-      wf.async = 'true';
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(wf, s);
-    })();
-  </script>
   <script src="app.js"></script>
 </body>
 

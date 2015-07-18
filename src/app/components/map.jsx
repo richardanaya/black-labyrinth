@@ -1,8 +1,3 @@
-let React = require('react');
-let mui = require('material-ui');
-let Immutable = require('immutable');
-let {Paper,TextField,Dialog} = require('material-ui');
-
 class MapComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -68,9 +63,9 @@ class MapComponent extends React.Component {
         };
 
         return <div style={containerStyle}>
-            <Paper zDepth={3} style={holderStyle}>
+            <div className="z-depth-3" style={holderStyle}>
                 <canvas ref="mapCanvas" style={canvasStyle} width={this.state.width-40} height={this.state.height-64-40}></canvas>
-            </Paper>
+            </div>
         </div>
     }
 }

@@ -1,8 +1,3 @@
-let React = require('react');
-let mui = require('material-ui');
-let Immutable = require('immutable');
-let TextField = mui.TextField;
-let Dialog = mui.Dialog
 let DiceStore = require("../stores/dicestore");
 let DiceActions = require("../actions/diceactions");
 
@@ -23,7 +18,7 @@ class DiceDialogComponent extends React.Component {
     }
 
     show(){
-        this.refs.dialog.show();
+        $(this.refs.dialog.getDOMNode()).openModal();
     }
 
     render() {
@@ -32,38 +27,42 @@ class DiceDialogComponent extends React.Component {
             { text: 'Roll', onTouchTap: this.onRoll.bind(this), ref: 'submit' }
         ];
 
-        return <Dialog
-            title="Roll Dice"
-            ref="dialog" autoDetectWindowHeight={true}
-            autoScrollBodyContent={true}
-            actions={standardActions}
-            actionFocus="submit">
-            Hey
-        </Dialog>
+        return (
+        <div ref="dialog" className="modal bottom-sheet">
+            <div className="modal-content">
+                <h4>Modal Header</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div className="modal-footer">
+                <a onClick={this.onRoll.bind(this)} className=" modal-action modal-close waves-effect waves-green btn-flat">Roll</a>
+            </div>
+        </div>
+        );
     }
 
     onRoll(){
         this.context.router.transitionTo("/dice");
         DiceActions.rollDice(Immutable.fromJS({
-            name: "Attack",
-            rollType: {
-                type: "sum"
-            },
-            total: 20,
+            total: 23,
+            totalDice: [3,20],
             roll: [
                 {
-                    modifier: 2,
                     dice: [
                         {
-                            numRolls: 3,
+                            numRolls: 1,
+                            modifier: 2,
+                            numSides: 4
+                        },
+                        {
+                            numRolls: 1,
                             modifier: 0,
-                            numSides: 6
+                            numSides: 20
                         }
                     ]
                 }
             ]
         }));
-        this.refs.dialog.dismiss();
+        $(this.refs.dialog.getDOMNode()).closeModal();
     }
 }
 

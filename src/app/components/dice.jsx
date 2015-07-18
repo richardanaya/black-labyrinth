@@ -1,6 +1,3 @@
-let React = require('react');
-let {Paper,TextField} = require('material-ui');
-let Immutable = require('immutable');
 let DiceStore = require("../stores/dicestore")
 let DiceItem = require("./diceitem.jsx")
 let newid = require('../newid');

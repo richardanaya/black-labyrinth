@@ -1,7 +1,4 @@
 let ChatActions = require('../actions/chatactions');
-let Immutable = require('immutable');
-var Rx = require('rx');
-let {Action,Store,Singleton} = require("staticflux");
 
 @Singleton
 class MessageStore extends Store {
