@@ -1,6 +1,6 @@
 let DiceStore = require("../stores/dicestore")
 let DiceItem = require("./diceitem.jsx")
-let newid = require('../newid');
+let newid = require('../util/newid');
 
 class DiceComponent extends React.Component {
     constructor(props) {
