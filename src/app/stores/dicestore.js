@@ -9,10 +9,6 @@ class DiceStore extends Store {
         super(Immutable.fromJS(
             [
                 {
-                    name: "",
-                    rollType: {
-                        type: "sum"
-                    },
                     total: 23,
                     totalDice: [3,20],
                     roll: [
@@ -33,10 +29,6 @@ class DiceStore extends Store {
                     ]
                 },
                 {
-                    name: "Attack",
-                    rollType: {
-                        type: "sum"
-                    },
                     total: 15,
                     totalDice: [4,5,6],
                     roll: [

@@ -1,5 +1,5 @@
 let React = require('react');
-let {Paper,TextField} = require('material-ui');
+let {Paper,TextField,FlatButton} = require('material-ui');
 let Immutable = require('immutable');
 let DiceStore = require("../stores/dicestore")
 
@@ -17,7 +17,7 @@ class DiceItem extends React.Component {
             margin: 7,
             padding: 10,
             fontSize: 24,
-            position: "absolute"
+            position: "relative"
         }
 
         let nameStyle = {
@@ -34,7 +34,12 @@ class DiceItem extends React.Component {
             right: 0,
             marginTop: -10,
             marginRight: 0,
-            padding: "3px 10px"
+            padding: "3px 10px",
+            width: 42
+        }
+
+        var labelStyle = {
+            width: 42
         }
 
         let hidden = {
@@ -60,8 +65,7 @@ class DiceItem extends React.Component {
         var finalString = allRolls.join(" + ");
         var diceString = rollJs.totalDice.join(" + ")+" = "+rollJs.total;
         return <Paper zDepth={1} style={diceRollStyle}>
-            <div style={rollJs.name!=''?nameStyle:hidden}>{rollJs.name}</div>
-            <div style={rerollStyle}>Reroll</div>
+            <FlatButton style={rerollStyle}><i className="fa fa-refresh"></i></FlatButton>
             {allRolls}<br/><br/>
             {diceString}
         </Paper>
